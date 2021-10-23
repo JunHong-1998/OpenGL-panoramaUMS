@@ -23,6 +23,7 @@ def S12edge():
     return [(0,1),(0,11),(0,12),(2,1),(2,3),(2,14),(4,3),(4,5),(4,16),(6,5),(6,7),(6,18),
             (8,7),(8,9),(8,20),(10,9),(10,11),(10,22),(13,12),(13,14),(13,1),(15,14),(15,16),(15,3),
             (17,16),(17,18),(17,5),(19,18),(19,20),(19,7),(21,20),(21,22),(21,9),(23,22),(23,12),(23,11),]
+
 def Trapezoid(Xo,Yo,Zo,a,w,d,h):
     Vtx = [(Xo-a, Yo, Zo-a), (Xo-a, Yo, Zo - d+a), (Xo - w+a, Yo, Zo - d+a), (Xo - w+a, Yo, Zo-a)]
     for i in range(len(Vtx)):
@@ -40,6 +41,7 @@ def Trapezoid(Xo,Yo,Zo,a,w,d,h):
         A = tuple(lst)
         Vtx.append(A)
     return Vtx
+
 def Pentvtx(vertices,a,h):
     X,Y,Z = [],0,[]
     for j in range(len(vertices)):
@@ -56,6 +58,7 @@ def Pentvtx(vertices,a,h):
        A = tuple(lst)
        Vtx.append(A)
     return Vtx
+
 def HSphere12vtx(Yo,d,h,piece,rat):
     Angl,ang,Vtx = 360/piece,0,[]
     for i in range(piece):
@@ -71,6 +74,7 @@ def HSphere12vtx(Yo,d,h,piece,rat):
         Z = d / 2*rat* math.sin(math.radians(ang)) * -1
         Vtx.append((X, Y, Z))
     return Vtx
+
 def PentagonVtx(X, Y, Z, rt, h):
     counter = True
     Xo, Yo, Zo = (X*1.5)*rt, Y, (Z*1.5)*rt
@@ -101,6 +105,7 @@ def PentagonVtx(X, Y, Z, rt, h):
        A = tuple(lst)
        Vtx.append(A)
     return Vtx
+
 def PentagonEdge():
     edg,a = [],0
     for j in range(2):
@@ -114,9 +119,11 @@ def PentagonEdge():
             edg.append((a,b))
             a +=1
     return edg
+
 def Cubesurf():
     surf = [(2,1,0,3), (6,5,1,2),(7,6,2,3), (5,4,0,1), (3,4,0,7), (4,7,3,0)]
     return surf
+
 def PentWhsurf():
     surf,a = [],0
     for j in range(2):
@@ -142,6 +149,7 @@ def PentWhsurf():
             d = k + 8
         surf.append((k, b, c, d))
     return surf
+
 def HSphere12surf():
     a,surf = 0,[]
     for i in range(12):
@@ -155,6 +163,7 @@ def HSphere12surf():
         surf.append((a,b,c,d))
         a+=1
     return surf
+
 def Cube2vtx(Xo, Yo, Zo, w, d, h):
     Vtx = [(Xo, Yo, Zo), (Xo + w, Yo, Zo), (Xo + w, Yo, Zo + d), (Xo, Yo, Zo + d)]
     for i in range(4):
@@ -164,8 +173,10 @@ def Cube2vtx(Xo, Yo, Zo, w, d, h):
        A = tuple(lst)
        Vtx.append(A)
     return Vtx
+
 def Cube2surf():
     return [(0,1,2,3), (7,4,0,3),(4,5,1,0), (5,6,2,1), (7,6,2,3), (4,5,6,7)]
+
 def CHRoofsurf():
     a,surf = 0,[]
     for i in range(1,6):
@@ -183,6 +194,7 @@ def CHRoofsurf():
             surf.append(s)
             a+=1
     return surf
+
 def CHBldsurf():
     a,surf = 0,[]
     for i in range(3):
@@ -198,6 +210,7 @@ def CHBldsurf():
             surf.append(s)
             a += 1
     return surf
+
 def CHBld2surf():
     a,count,surf = 0,0,[]
     for i in range(4):
@@ -229,6 +242,7 @@ def CHBld2surf():
                 surf.append(s)
             a+=1
     return surf
+
 def CHSphereEdge():
     a,edg = 0,[]
     for j in range(5):
@@ -243,6 +257,7 @@ def CHSphereEdge():
             edg.append((a,c))
             a += 1
     return edg
+
 def CHSphereVtx(Xo, Yo, r, h):
     Vtx = []
     for j in range(5):
@@ -265,6 +280,7 @@ def CHSphereVtx(Xo, Yo, r, h):
             Yo += h / 10
     Vtx.append((Xo,round(Yo, 1),0))
     return Vtx
+
 def CHBldVtx(Xo, Yo, r, h):
     Vtx = []
     for j in range(4):
@@ -280,6 +296,7 @@ def CHBldVtx(Xo, Yo, r, h):
         elif j ==2:
             Yo -= h
     return Vtx
+
 def CHBld2Vtx(Xo, Yo, r, h):
     Vtx = []
     for j in range(5):
@@ -301,6 +318,7 @@ def CHBld2Vtx(Xo, Yo, r, h):
             Z = r * math.sin(math.radians(i*5))*-1
             Vtx.append((X,Y,Z))
     return Vtx
+
 def CHBld2Edge():
     a, count, edg = 0,0,[]
     for j in range(5):
@@ -325,6 +343,7 @@ def CHBld2Edge():
                 count += 1
             a += 1
     return edg
+
 def CHBldEdge():
     a, edg = 0,[]
     for j in range(4):
@@ -340,6 +359,7 @@ def CHBldEdge():
                 edg.append((a,c))
             a += 1
     return edg
+
 def TriangleFanXY(Xo, Yo, Zo, r, h, c):
     glBegin(GL_TRIANGLE_FAN)
     glVertex3f(Xo, Yo+h, Zo)
@@ -349,6 +369,7 @@ def TriangleFanXY(Xo, Yo, Zo, r, h, c):
         y = h + math.cos(math.radians(i)) * r
         glVertex3f(x, y, Zo)
     glEnd()
+    
 def TriangleFanYZ(Xo, Yo, Zo, r, h, c):
     glBegin(GL_TRIANGLE_FAN)
     glVertex3f(Xo, Yo+h, Zo)
@@ -358,6 +379,7 @@ def TriangleFanYZ(Xo, Yo, Zo, r, h, c):
         y = h + math.cos(math.radians(i)) * r
         glVertex3f(Xo, y, z)
     glEnd()
+    
 def IrCylinder(Xo,Yo,Zo,r,h,rat):
     Vtx = []
     for j in range(2):
@@ -371,6 +393,7 @@ def IrCylinder(Xo,Yo,Zo,r,h,rat):
             Z = r * math.sin(math.radians(i*10)) + Zo
             Vtx.append((X, Y, Z))
     return Vtx
+
 def IrCylinderEdge():
     Edg,a = [],0
     for j in range(2):
@@ -384,6 +407,7 @@ def IrCylinderEdge():
                 Edg.append((a, c))
             a += 1
     return Edg
+
 def IrCylinderSurf():
     surf = []
     for i in range(36):
@@ -395,6 +419,7 @@ def IrCylinderSurf():
             d -= 36
         surf.append((b,i,c,d))
     return surf
+
 def FPTree(Xo, Yo, Zo, r, wire):
     Tr3 = []
     Tr1 = IrCylinder(Xo,Yo,Zo,r,2,0.67)
@@ -465,6 +490,7 @@ def FPTree(Xo, Yo, Zo, r, wire):
                 if counter == 10:
                     counter=0
     glEnd()
+    
 def Carpet():
     glLineWidth(2)
     glBegin(GL_LINES)
@@ -503,6 +529,7 @@ def Carpet():
     glColor3ub(164, 194, 41)
     glVertex3f(-5, -1, -3)
     glEnd()
+    
 def Sky():
     glBegin(GL_QUADS)
     glColor3ub(148, 8, 84)
@@ -514,6 +541,7 @@ def Sky():
     glColor3ub(236, 220, 109)
     glVertex3f(-50, 35, -23)
     glEnd()
+    
 def Bush(color):
     glLineWidth(5)
     glBegin(GL_LINES)
@@ -551,6 +579,7 @@ def Bush(color):
                 glColor3f(color[0], color[1], color[2])
                 glVertex3f(X, Y + 1, Z-1)
     glEnd()
+    
 def MenaraJam(wire):
     Base1Vtx = Cubevtx(5, -10, 5, 10, 10, 1)
     P1 = Base1Vtx[4]
@@ -836,6 +865,7 @@ def MenaraJam(wire):
     ClockVtx4 = MJ3Vtx[7]
     TriangleFanYZ(ClockVtx4[0] - 0.5, 0, 0, 0.15, 12.95,(1,0,0))
     TriangleFanYZ(ClockVtx4[0] - 0.5, 0, 0, 0.1, 12.95, (1, 1, 1))
+    
 def CanselorHall(wire):
     CanselorRoof = CHSphereVtx(20, 10, 8, 6)
     Canselor1 = CHBldVtx(20, 10, 8, 6)
@@ -952,6 +982,7 @@ def Construct(Vtx, Edg, surfs, color, wire):
                 glColor3fv(color[x])
                 glVertex3fv(Vtx[vertex])
         glEnd()
+        
 def PalmTree():
     glPushMatrix()
     glTranslatef(-5, 0, -5)
@@ -973,6 +1004,7 @@ def PalmTree():
     glTranslatef(-24, 0, 0)
     FPTree(0, -10, 0, 1,0)
     glPopMatrix()
+    
 def BUSHES():
     glPushMatrix()
     glScalef(0.4,0.4,0.4)
@@ -1057,12 +1089,14 @@ def BUSHES():
     glTranslatef(5, -1, 3)
     Bush(Yellow)
     glPopMatrix()
+    
 def LAND():
     glPushMatrix()
     glTranslatef(-45,-5,-20)
     glRotatef(20,1,0,0)
     Carpet()
     glPopMatrix()
+    
 def Panorama():
     Sky()
     LAND()
@@ -1079,6 +1113,7 @@ def Panorama():
     CanselorHall(0)
     glPopMatrix()
     BUSHES()
+    
 def TRANSF(RotX, RotY, RotZ, TslX, TslY, TslZ):
     glTranslate(TslX, TslY, TslZ)
     glRotatef(RotX, 1, 0, 0)
