@@ -1,2 +1,3 @@
 # FCG-panoramaUMS
 A panorama of University Malaysia Sabah developed through OpenGL by combining raw shapes...
+Panorama is generally defined as a view of a wide area. The UMS panorama drawn was based on the view of significant building such as ‘MenaraJam’ and ‘CanselorHall’ around the roundabout which located near to entrance of UMS. There were only two main libraries used in generating this panorama view, OpenGL and Pygame. All the drawing was drawn by using OpenGl while the window and interactive action was done by implementing Pygame. There are a few interesting features added in this panorama which user able to examine the 3D objects drawn in panorama.
